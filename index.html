@@ -3,214 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuphead: La Biblia del Jugador Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Merriweather:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
+    <title>CUPHEAD: THE ETERNAL BATTLE GUIDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Fascinate+Inline&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --turquesa: #AFEEEE;
-            --turquesa-oscuro: #008080;
-            --rojo-cup: #d32f2f;
-            --carbon: #1a1a1a;
-            --blanco-cristal: rgba(255, 255, 255, 0.9);
+            --gold: #FFD700;
+            --cup-red: #D32F2F;
+            --mug-blue: #1976D2;
+            --chalice-yellow: #FBC02D;
+            --dark-ink: #121212;
+            --paper: #f4ece0;
         }
 
-        body {
-            background-color: var(--turquesa);
-            font-family: 'Merriweather', serif;
-            color: #2c3e50;
+        * { box-sizing: border-box; }
+        body { 
+            background-color: var(--paper);
             margin: 0;
+            font-family: 'Merriweather', serif;
+            color: #222;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        /* ANIMACIÓN DE ENTRADA */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
         /* HEADER MONUMENTAL */
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('encabezado.png');
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('encabezado.png');
             background-size: cover;
             background-attachment: fixed;
-            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
             text-align: center;
-            font-family: 'Bungee Shade', cursive;
-            border-bottom: 15px solid var(--rojo-cup);
+            border-bottom: 15px solid var(--dark-ink);
         }
 
-        h1 { font-size: 5rem; text-shadow: 5px 5px 0px var(--rojo-cup); margin: 0; }
+        header h1 { 
+            font-family: 'Bungee Shade', cursive; 
+            font-size: 6rem; 
+            color: var(--cup-red); 
+            margin: 0;
+            animation: float 4s ease-in-out infinite;
+            text-shadow: 5px 5px 0px white;
+        }
 
-        /* NAVEGACIÓN PRO */
+        /* NAVEGACIÓN STICKY */
         nav {
-            background: var(--carbon);
-            padding: 20px;
             position: sticky;
             top: 0;
-            z-index: 2000;
+            background: var(--dark-ink);
+            padding: 15px;
+            z-index: 1000;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         nav a {
-            color: var(--turquesa);
+            color: white;
             text-decoration: none;
             font-family: 'Bungee', cursive;
             font-size: 0.8rem;
-            transition: 0.3s ease;
             padding: 10px 15px;
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover { border-bottom: 3px solid var(--cup-red); color: var(--gold); }
+
+        /* SECCIONES */
+        .section-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        
+        section { 
+            margin-bottom: 150px; 
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .pro-box {
+            background: white;
+            padding: 50px;
+            border: 10px double var(--dark-ink);
             border-radius: 5px;
+            box-shadow: 15px 15px 0px var(--cup-red);
         }
 
-        nav a:hover {
-            background: var(--rojo-cup);
-            color: white;
-        }
+        h2 { font-family: 'Fascinate Inline', cursive; font-size: 3.5rem; color: var(--dark-ink); text-align: center; }
 
-        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .big-img { width: 100%; max-width: 800px; display: block; margin: 40px auto; border-radius: 10px; filter: sepia(20%); }
 
-        section {
-            background: var(--blanco-cristal);
-            margin-bottom: 100px;
-            padding: 60px;
-            border-radius: 50px;
-            border: 4px solid var(--carbon);
-            box-shadow: 25px 25px 0px var(--turquesa-oscuro);
-        }
-
-        h2 { font-family: 'Bungee', cursive; color: var(--rojo-cup); font-size: 3rem; text-align: center; margin-bottom: 40px; }
-
-        .img-large { width: 100%; max-width: 700px; display: block; margin: 30px auto; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-
-        /* GRID DE VIDEOS */
-        .video-grid {
+        /* GRID DE VIDEOS RELLENO */
+        .video-wall {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 50px 0;
         }
 
-        .video-card { background: var(--carbon); padding: 15px; border-radius: 20px; border: 3px solid var(--turquesa-oscuro); }
+        .video-item { background: var(--dark-ink); padding: 20px; border-radius: 15px; color: white; }
+        .iframe-wrap { position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 15px; }
+        .iframe-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 3px solid var(--gold); }
 
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        /* HISTORIA Y LORE */
+        .story-text { font-size: 1.2rem; line-height: 1.8; column-count: 2; column-gap: 40px; }
 
-        /* TABLA TÉCNICA */
-        table { width: 100%; border-collapse: collapse; background: white; margin-top: 30px; }
-        th, td { padding: 20px; border: 2px solid var(--carbon); text-align: left; }
-        th { background: var(--turquesa-oscuro); color: white; font-family: 'Bungee', cursive; }
+        /* MODO EXPERTO DARK */
+        .dark-section { background: var(--dark-ink); color: white; padding: 100px 0; margin-top: 50px; }
 
-        .btn-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--rojo-cup);
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            text-decoration: none;
-            font-family: 'Bungee', cursive;
-            z-index: 3000;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        footer { 
+            background: #000; 
+            color: var(--gold); 
+            text-align: center; 
+            padding: 100px; 
+            font-family: 'Bungee', cursive; 
+            font-size: 2rem;
+            border-top: 10px solid var(--cup-red);
         }
 
-        footer { background: var(--carbon); color: white; text-align: center; padding: 100px 20px; font-family: 'Bungee', cursive; }
+        .stat-bar { background: #ddd; height: 20px; border-radius: 10px; margin: 10px 0; }
+        .fill-red { background: var(--cup-red); height: 100%; width: 90%; border-radius: 10px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>CUPHEAD PRO</h1>
-    <p style="font-size: 1.5rem;">Domina el arte del combate de 1930</p>
-    <a href="#intro" style="color:white; margin-top:20px; text-decoration:none; border:2px solid white; padding:10px 20px; font-family:'Bungee';">COMENZAR</a>
+    <h1>CUPHEAD BIBLE</h1>
+    <p style="color:white; font-family:'Bungee'; letter-spacing: 5px;">DON'T DEAL WITH THE DEVIL</p>
 </header>
 
 <nav>
-    <a href="#intro">INICIO</a>
-    <a href="#armas">ARMERÍA</a>
-    <a href="#jefes">JEFES</a>
-    <a href="#video-tutoriales">VIDEOTECA</a>
-    <a href="#dlc">DLC SECRETS</a>
-    <a href="#expert">MODO EXPERTO</a>
+    <a href="#historia">LA HISTORIA</a>
+    <a href="#personajes">HÉROES</a>
+    <a href="#armas">ARSENAL</a>
+    <a href="#videos">VIDEOTECA</a>
+    <a href="#bosses">JEFES ELITE</a>
+    <a href="#kingdice">REY DADO</a>
 </nav>
 
-<a href="#" class="btn-top">UP</a>
+<div class="section-container">
 
-<div class="content-wrapper" id="intro">
-    
-    <section>
-        <h2>BIENVENIDO AL RETO</h2>
-        <img src="jefes.png" class="img-large" alt="Jefes">
-        <p style="font-size: 1.3rem; text-align: center;">Esta no es una guía cualquiera. Aquí aprenderás cómo los ingenieros del juego diseñaron cada patrón de ataque para que tú puedas romperlos.</p>
+    <section id="historia" class="pro-box">
+        <h2>EL ORIGEN DE LA DEUDA</h2>
+        <img src="encabezado.png" class="big-img" alt="Historia">
+        <div class="story-text">
+            Cuphead y Mugman vivían tranquilamente bajo la supervisión del Elder Kettle. Un día, se alejaron demasiado y entraron al Casino del Diablo. Tras una racha de suerte increíble, el mismísimo Diablo les propuso una apuesta: si ganaban, se llevaban todo el oro del casino; si perdían, sus almas serían suyas. Los hermanos perdieron y ahora deben recolectar los contratos de alma de todos los deudores de Inkwell Isle para salvarse. Esta odisea los llevará a través de tres islas llenas de peligros y jefes gigantescos que pondrán a prueba su determinación.
+        </div>
     </section>
 
-    <section id="armas">
-        <h2>ESTADÍSTICAS DE ARMAS</h2>
-        <img src="armas.png" class="img-large" alt="Armas">
-        <table>
-            <tr><th>NOMBRE</th><th>DAÑO (DPS)</th><th>MODO DE USO</th></tr>
-            <tr><td>Peashooter</td><td>Media-Baja</td><td>Versátil para todo el juego.</td></tr>
-            <tr><td>Spread</td><td>Máxima</td><td>De cerca destroza a cualquier jefe.</td></tr>
-            <tr><td>Charge</td><td>Extrema</td><td>Requiere precisión y tiempo de carga.</td></tr>
-            <tr><td>Lobber</td><td>Alta</td><td>Para jefes que están debajo de ti.</td></tr>
-        </table>
-    </section>
-
-    <section id="jefes">
-        <h2>ELIMINACIÓN DE JEFES</h2>
-        <img src="encabezado.png" class="img-large" alt="Estrategia">
-        <p>Cada jefe tiene 3 a 4 fases. La clave es el **Parry**. Si no haces parry, no cargas tu súper, y si no tienes súper, la batalla será eterna.</p>
-    </section>
-
-    <section id="video-tutoriales">
-        <h2>BIBLIOTECA DE COMBATE</h2>
-        <div class="video-grid">
-            <div class="video-card">
-                <p style="color:white; font-family:'Bungee'; font-size:0.7rem;">Tutorial 1: Trucos Pro</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/9XRbWkdrcZI" frameborder="0" allowfullscreen></iframe>
-                </div>
+    <section id="personajes">
+        <h2>LOS TRES GRANDES</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; background: #fff; padding: 20px; border: 5px solid var(--cup-red);">
+                <h3>CUPHEAD / MUGMAN</h3>
+                <p>La base del juego. El truco principal es el **Duck-Dodge** (agacharse mientras disparas) para reducir tu hitbox a la mitad.</p>
             </div>
-            <div class="video-card">
-                <p style="color:white; font-family:'Bungee'; font-size:0.7rem;">Tutorial 2: Rango S DLC</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/gd5k6kZi_vw" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="video-card">
-                <p style="color:white; font-family:'Bungee'; font-size:0.7rem;">Tutorial 3: Jefes Secretos</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/k5N98gTlWgo" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="video-card">
-                <p style="color:white; font-family:'Bungee'; font-size:0.7rem;">Tutorial 4: Guía de Armas</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/E369f_bWvYg" frameborder="0" allowfullscreen></iframe>
-                </div>
+            <div style="flex: 1; background: #fff; padding: 20px; border: 5px solid var(--chalice-yellow);">
+                <h3>MS. CHALICE</h3>
+                <p>La reina del DLC. Su truco maestro es el **Double Jump** y el **Parry Dash**. Al deslizarte (dash), haces parry automáticamente, lo que facilita mucho las peleas contra jefes aéreos.</p>
             </div>
         </div>
-        <img src="mapa.png" class="img-large" alt="Mapa">
+        <img src="jefes.png" class="big-img" alt="Heroes">
     </section>
 
-    <section id="dlc">
-        <h2>SECRETOS DEL DLC</h2>
-        <img src="secretos.png" class="img-large" alt="Secretos">
-        <p>Para desbloquear al jefe secreto del DLC (El Ángel y el Demonio), debes resolver el puzzle de las lápidas en el cementerio. ¡Usa la reliquia rota!</p>
+    <section id="armas" class="pro-box">
+        <h2>ARSENAL DE INGENIERÍA</h2>
+        <img src="armas.png" class="big-img" alt="Armas">
+        <p>Como expertos, sabemos que no todas las armas sirven para todos. El **Crackshot** es ideal para enfocarse en esquivar, mientras que el **Spread** es necesario para fases donde el jefe está inmóvil.</p>
+        <div class="stat-bar"><div class="fill-red" style="width: 95%;"></div></div>
+        <p>Potencia de Fuego: 95% (Spread Shot)</p>
     </section>
 
-    <section id="expert">
-        <h2>DOMINIO EXPERTO</h2>
-        <img src="final.png" class="img-large" alt="Final">
-        <p>El modo experto acelera los proyectiles un 25%. Aquí la paciencia es tu mejor arma. ¡No dispares por disparar, muévete primero!</p>
+    <section id="videos">
+        <h2>BIBLIOTECA DE ESTRATEGIA</h2>
+        <p style="text-align:center;">Analiza estos videos cuadro por cuadro para aprender los patrones de ataque:</p>
+        <div class="video-wall">
+            <div class="video-item">
+                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/9XRbWkdrcZI"></iframe></div>
+                <p>30 TRUCOS DE SPEEDRUNNERS</p>
+            </div>
+            <div class="video-item">
+                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/gd5k6kZi_vw"></iframe></div>
+                <p>GUÍA RANGO S DLC</p>
+            </div>
+            <div class="video-item">
+                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/k5N98gTlWgo"></iframe></div>
+                <p>JEFES SECRETOS</p>
+            </div>
+            <div class="video-item">
+                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/E369f_bWvYg"></iframe></div>
+                <p>EXPERTO SIN DAÑO</p>
+            </div>
+        </div>
+        <img src="mapa.png" class="big-img" alt="Mapa de Batalla">
+    </section>
+
+    <section id="kingdice" class="pro-box" style="border-color: purple;">
+        <h2 style="color: purple;">EL REY DADO: EL GUARDIÁN</h2>
+        <img src="secretos.png" class="big-img" alt="King Dice">
+        <p>La pelea contra King Dice no es una batalla, es un juego de azar. **EL TRUCO:** Puedes saltar y golpear el dado en el momento exacto para elegir qué jefe enfrentar. Recomendamos siempre ir por el jefe 2, 5 y 8 para la ruta más rápida al Rango S.</p>
     </section>
 
 </div>
 
+<div class="dark-section">
+    <div class="section-container">
+        <h2>EL CAMINO DEL GUERRERO (MODO EXPERTO)</h2>
+        <img src="final.png" class="big-img" style="border: 5px solid var(--gold);">
+        <p style="font-size: 1.5rem; text-align: center;">En el Modo Experto, los proyectiles viajan a velocidades extremas. Solo el 1% de los jugadores logra completar el juego con Rango S en todos los niveles. ¿Estás listo para el desafío final?</p>
+    </div>
+</div>
+
 <footer>
-    <p>DISEÑADO POR ISMAEL JOSUE RODRIGUEZ VILLALOBOS</p>
-    <p style="font-size:0.8rem; opacity:0.6;">Ingeniería de Software & Gaming Pro &copy; 2026</p>
+    ISMAEL JOSUE RODRIGUEZ VILLALOBOS
 </footer>
 
 </body>
