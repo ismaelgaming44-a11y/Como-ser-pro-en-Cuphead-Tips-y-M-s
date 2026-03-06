@@ -3,224 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUPHEAD: THE ETERNAL BATTLE GUIDE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Fascinate+Inline&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <title>CUPHEAD: LA BIBLIA SUPREMA DEL GAMING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Press+Start+2P&family=Merriweather:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #FFD700;
-            --cup-red: #D32F2F;
-            --mug-blue: #1976D2;
-            --chalice-yellow: #FBC02D;
-            --dark-ink: #121212;
-            --paper: #f4ece0;
+            --rojo-sangre: #b71c1c;
+            --turquesa: #40E0D0;
+            --dorado: #ffd700;
+            --negro-tinta: #0a0a0a;
+            --papel-viejo: #fdf5e6;
         }
 
         * { box-sizing: border-box; }
         body { 
-            background-color: var(--paper);
-            margin: 0;
-            font-family: 'Merriweather', serif;
-            color: #222;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            background-color: var(--negro-tinta); 
+            color: #333; 
+            font-family: 'Merriweather', serif; 
+            margin: 0; 
+            scroll-behavior: smooth; 
         }
 
-        /* ANIMACIÓN DE ENTRADA */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        /* ANIMACIONES CHINGONAS */
+        @keyframes sacudida { 0% { transform: translate(1px, 1px) rotate(0deg); } 20% { transform: translate(-1px, -2px) rotate(-1deg); } 40% { transform: translate(-3px, 0px) rotate(1deg); } 100% { transform: translate(1px, 1px) rotate(0deg); } }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-100px); } to { opacity: 1; transform: translateX(0); } }
 
-        /* HEADER MONUMENTAL */
+        /* HEADER GIGANTE */
         header {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('encabezado.png');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url('encabezado.png');
             background-size: cover;
             background-attachment: fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            border-bottom: 15px solid var(--dark-ink);
+            border-bottom: 20px solid var(--rojo-sangre);
         }
 
         header h1 { 
-            font-family: 'Bungee Shade', cursive; 
-            font-size: 6rem; 
-            color: var(--cup-red); 
-            margin: 0;
-            animation: float 4s ease-in-out infinite;
-            text-shadow: 5px 5px 0px white;
+            font-family: 'Bungee Inline', cursive; 
+            font-size: 5rem; 
+            color: var(--rojo-sangre); 
+            text-shadow: 8px 8px 0px white; 
+            animation: sacudida 0.5s infinite;
+            text-align: center;
         }
 
-        /* NAVEGACIÓN STICKY */
+        /* NAVEGACIÓN PROFESIONAL */
         nav {
             position: sticky;
             top: 0;
-            background: var(--dark-ink);
+            background: rgba(0,0,0,0.95);
             padding: 15px;
-            z-index: 1000;
+            z-index: 10000;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            gap: 15px;
+            flex-wrap: wrap;
+            border-bottom: 5px solid var(--turquesa);
         }
 
         nav a {
+            color: var(--turquesa);
+            text-decoration: none;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            padding: 10px;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover { border: 2px solid var(--rojo-sangre); background: white; color: black; }
+
+        /* BOTÓN VOLVER ARRIBA */
+        .btn-up {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--rojo-sangre);
             color: white;
             text-decoration: none;
             font-family: 'Bungee', cursive;
-            font-size: 0.8rem;
-            padding: 10px 15px;
-            transition: 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-
-        nav a:hover { border-bottom: 3px solid var(--cup-red); color: var(--gold); }
-
-        /* SECCIONES */
-        .section-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-        
-        section { 
-            margin-bottom: 150px; 
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .pro-box {
-            background: white;
-            padding: 50px;
-            border: 10px double var(--dark-ink);
             border-radius: 5px;
-            box-shadow: 15px 15px 0px var(--cup-red);
+            font-size: 0.8rem;
         }
 
-        h2 { font-family: 'Fascinate Inline', cursive; font-size: 3.5rem; color: var(--dark-ink); text-align: center; }
+        /* CONTENEDORES DE SECCIÓN */
+        .full-width-section { width: 100%; padding: 100px 20px; border-bottom: 2px solid #ccc; }
+        .bg-papel { background-color: var(--papel-viejo); }
+        .bg-dark { background-color: #1a1a1a; color: white; }
+        
+        .container { max-width: 1100px; margin: 0 auto; line-height: 1.8; }
+        
+        h2 { font-family: 'Bungee', cursive; font-size: 3.5rem; color: var(--rojo-sangre); margin-top: 0; text-align: center; }
+        h3 { font-family: 'Bungee', cursive; color: var(--turquesa); font-size: 2rem; }
 
-        .big-img { width: 100%; max-width: 800px; display: block; margin: 40px auto; border-radius: 10px; filter: sepia(20%); }
-
-        /* GRID DE VIDEOS RELLENO */
-        .video-wall {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin: 50px 0;
+        .img-pro { 
+            width: 100%; 
+            max-width: 600px; 
+            display: block; 
+            margin: 40px auto; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            border: 10px solid white; 
+            transition: 0.5s;
         }
+        .img-pro:hover { transform: scale(1.05) rotate(2deg); }
+        .img-small { width: 150px; float: left; margin: 20px; border: 3px solid var(--rojo-sangre); }
 
-        .video-item { background: var(--dark-ink); padding: 20px; border-radius: 15px; color: white; }
-        .iframe-wrap { position: relative; padding-bottom: 56.25%; height: 0; margin-bottom: 15px; }
-        .iframe-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 3px solid var(--gold); }
+        /* TABLAS TÉCNICAS */
+        table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; color: black; }
+        th, td { border: 3px solid black; padding: 15px; text-align: left; }
+        th { background: var(--negro-tinta); color: var(--dorado); font-family: 'Bungee'; }
 
-        /* HISTORIA Y LORE */
-        .story-text { font-size: 1.2rem; line-height: 1.8; column-count: 2; column-gap: 40px; }
-
-        /* MODO EXPERTO DARK */
-        .dark-section { background: var(--dark-ink); color: white; padding: 100px 0; margin-top: 50px; }
+        /* VIDEOTECA */
+        .grid-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; }
+        .video-card { background: #000; padding: 15px; border: 4px solid var(--rojo-sangre); border-radius: 15px; }
+        .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         footer { 
             background: #000; 
-            color: var(--gold); 
+            color: white; 
+            padding: 150px 20px; 
             text-align: center; 
-            padding: 100px; 
-            font-family: 'Bungee', cursive; 
-            font-size: 2rem;
-            border-top: 10px solid var(--cup-red);
+            border-top: 15px solid var(--rojo-sangre);
         }
 
-        .stat-bar { background: #ddd; height: 20px; border-radius: 10px; margin: 10px 0; }
-        .fill-red { background: var(--cup-red); height: 100%; width: 90%; border-radius: 10px; }
+        .floating-img { position: fixed; bottom: 20px; left: 20px; width: 80px; z-index: 5000; animation: float 3s infinite ease-in-out; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>CUPHEAD BIBLE</h1>
-    <p style="color:white; font-family:'Bungee'; letter-spacing: 5px;">DON'T DEAL WITH THE DEVIL</p>
-</header>
-
 <nav>
-    <a href="#historia">LA HISTORIA</a>
-    <a href="#personajes">HÉROES</a>
-    <a href="#armas">ARSENAL</a>
+    <a href="#historia">HISTORIA</a>
+    <a href="#personajes">PERSONAJES</a>
+    <a href="#armas">ARMERÍA</a>
+    <a href="#jefes">JEFES</a>
     <a href="#videos">VIDEOTECA</a>
-    <a href="#bosses">JEFES ELITE</a>
-    <a href="#kingdice">REY DADO</a>
+    <a href="#secretos">SECRETOS</a>
+    <a href="#experto">EXPERTO</a>
 </nav>
 
-<div class="section-container">
-
-    <section id="historia" class="pro-box">
-        <h2>EL ORIGEN DE LA DEUDA</h2>
-        <img src="encabezado.png" class="big-img" alt="Historia">
-        <div class="story-text">
-            Cuphead y Mugman vivían tranquilamente bajo la supervisión del Elder Kettle. Un día, se alejaron demasiado y entraron al Casino del Diablo. Tras una racha de suerte increíble, el mismísimo Diablo les propuso una apuesta: si ganaban, se llevaban todo el oro del casino; si perdían, sus almas serían suyas. Los hermanos perdieron y ahora deben recolectar los contratos de alma de todos los deudores de Inkwell Isle para salvarse. Esta odisea los llevará a través de tres islas llenas de peligros y jefes gigantescos que pondrán a prueba su determinación.
-        </div>
-    </section>
-
-    <section id="personajes">
-        <h2>LOS TRES GRANDES</h2>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-            <div style="flex: 1; background: #fff; padding: 20px; border: 5px solid var(--cup-red);">
-                <h3>CUPHEAD / MUGMAN</h3>
-                <p>La base del juego. El truco principal es el **Duck-Dodge** (agacharse mientras disparas) para reducir tu hitbox a la mitad.</p>
-            </div>
-            <div style="flex: 1; background: #fff; padding: 20px; border: 5px solid var(--chalice-yellow);">
-                <h3>MS. CHALICE</h3>
-                <p>La reina del DLC. Su truco maestro es el **Double Jump** y el **Parry Dash**. Al deslizarte (dash), haces parry automáticamente, lo que facilita mucho las peleas contra jefes aéreos.</p>
-            </div>
-        </div>
-        <img src="jefes.png" class="big-img" alt="Heroes">
-    </section>
-
-    <section id="armas" class="pro-box">
-        <h2>ARSENAL DE INGENIERÍA</h2>
-        <img src="armas.png" class="big-img" alt="Armas">
-        <p>Como expertos, sabemos que no todas las armas sirven para todos. El **Crackshot** es ideal para enfocarse en esquivar, mientras que el **Spread** es necesario para fases donde el jefe está inmóvil.</p>
-        <div class="stat-bar"><div class="fill-red" style="width: 95%;"></div></div>
-        <p>Potencia de Fuego: 95% (Spread Shot)</p>
-    </section>
-
-    <section id="videos">
-        <h2>BIBLIOTECA DE ESTRATEGIA</h2>
-        <p style="text-align:center;">Analiza estos videos cuadro por cuadro para aprender los patrones de ataque:</p>
-        <div class="video-wall">
-            <div class="video-item">
-                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/9XRbWkdrcZI"></iframe></div>
-                <p>30 TRUCOS DE SPEEDRUNNERS</p>
-            </div>
-            <div class="video-item">
-                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/gd5k6kZi_vw"></iframe></div>
-                <p>GUÍA RANGO S DLC</p>
-            </div>
-            <div class="video-item">
-                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/k5N98gTlWgo"></iframe></div>
-                <p>JEFES SECRETOS</p>
-            </div>
-            <div class="video-item">
-                <div class="iframe-wrap"><iframe src="https://www.youtube.com/embed/E369f_bWvYg"></iframe></div>
-                <p>EXPERTO SIN DAÑO</p>
-            </div>
-        </div>
-        <img src="mapa.png" class="big-img" alt="Mapa de Batalla">
-    </section>
-
-    <section id="kingdice" class="pro-box" style="border-color: purple;">
-        <h2 style="color: purple;">EL REY DADO: EL GUARDIÁN</h2>
-        <img src="secretos.png" class="big-img" alt="King Dice">
-        <p>La pelea contra King Dice no es una batalla, es un juego de azar. **EL TRUCO:** Puedes saltar y golpear el dado en el momento exacto para elegir qué jefe enfrentar. Recomendamos siempre ir por el jefe 2, 5 y 8 para la ruta más rápida al Rango S.</p>
-    </section>
-
-</div>
-
-<div class="dark-section">
-    <div class="section-container">
-        <h2>EL CAMINO DEL GUERRERO (MODO EXPERTO)</h2>
-        <img src="final.png" class="big-img" style="border: 5px solid var(--gold);">
-        <p style="font-size: 1.5rem; text-align: center;">En el Modo Experto, los proyectiles viajan a velocidades extremas. Solo el 1% de los jugadores logra completar el juego con Rango S en todos los niveles. ¿Estás listo para el desafío final?</p>
+<section id="historia" class="full-width-section bg-papel">
+    <div class="container">
+        <h2>EL ORIGEN DEL CAOS</h2>
+        <img src="encabezado.png" class="img-pro" alt="Portada">
+        <p>Todo comenzó en las Islas Inkwell, un lugar donde la caricatura cobra vida. Cuphead y Mugman, bajo la tutela del Sabio Tetera, cometieron el error de su vida al entrar en el Casino del Diablo. Esta web no es solo una página, es el testamento de miles de horas de juego para alcanzar la perfección. Aquí analizamos cada frame, cada píxel y cada patrón de ataque diseñado por Studio MDHR.</p>
+        <img src="jefes.png" class="img-small" alt="Mini Jefes">
+        <p>La narrativa de Cuphead rinde homenaje a la animación de los años 30 (Fleischer Studios y Disney). Los hermanos no solo pelean por sus almas, pelean por la redención de todo un mundo que ha caído bajo el yugo de contratos imposibles. Cada jefe que derrotas es un alma que liberas, pero a un costo físico y mental extremo para el jugador.</p>
+        <a href="#top" class="btn-up">SUBIR AL MENÚ</a>
     </div>
-</div>
+</section>
+
+<section id="personajes" class="full-width-section bg-dark">
+    <div class="container">
+        <h2>LOS HÉROES DE TINTA</h2>
+        <img src="secretos.png" class="img-pro" alt="Personajes">
+        <h3>CUPHEAD Y MUGMAN: EL DUO DINÁMICO</h3>
+        <p>Mientras Cuphead es el impulsivo, Mugman representa la cautela. Técnicamente son idénticos, pero su manejo requiere dominar el **Buffer Jump** y el **Quick Swap**. Cambiar de arma en el aire aumenta tu cadencia de disparo un 15% si se hace correctamente.</p>
+        
+        <h3>MS. CHALICE: LA REVOLUCIÓN DEL DLC</h3>
+        <p>Chalice cambia las reglas del juego. No tiene un salto normal, ¡tiene un doble salto! Su "Dash Parry" es la herramienta más poderosa para enfrentar a jefes como Mortimer Freeze o Esther Espuelas. Si buscas el Rango S, Chalice es tu mejor opción en el 80% de los casos.</p>
+        <img src="final.png" class="img-small" alt="Chalice Mini">
+        <a href="#top" class="btn-up">SUBIR AL MENÚ</a>
+    </div>
+</section>
+
+<section id="armas" class="full-width-section bg-papel">
+    <div class="container">
+        <h2>INGENIERÍA DE COMBATE</h2>
+        <img src="armas.png" class="img-pro" alt="Armas">
+        <table>
+            <tr><th>ARMA</th><th>DAÑO BASE</th><th>DAÑO EX</th><th>FUNCIÓN PRO</th></tr>
+            <tr><td>Peashooter</td><td>4</td><td>25</td><td>Control de distancia larga.</td></tr>
+            <tr><td>Spread</td><td>1.2 (x8)</td><td>28</td><td>Daño masivo a quemarropa.</td></tr>
+            <tr><td>Charge</td><td>46 (Cargado)</td><td>27</td><td>Sniper: Ideal para jefes lentos.</td></tr>
+            <tr><td>Crackshot</td><td>3.5</td><td>22</td><td>Auto-apuntado: Para enfocarse en esquivar.</td></tr>
+            <tr><td>Lobber</td><td>11.6</td><td>30</td><td>Trayectoria curva: Para jefes inferiores.</td></tr>
+        </table>
+        <p><strong>Truco Pro:</strong> Usar la bomba de humo (Smoke Dash) te hace invencible durante el desplazamiento. Es el amuleto más importante para sobrevivir en el Modo Experto.</p>
+        <img src="mapa.png" class="img-pro" alt="Distribución">
+        <a href="#top" class="btn-up">SUBIR AL MENÚ</a>
+    </div>
+</section>
+
+<section id="videos" class="full-width-section bg-dark">
+    <div class="container">
+        <h2>CENTRO DE ENTRENAMIENTO VISUAL</h2>
+        <div class="grid-videos">
+            <div class="video-card">
+                <h3>30 TRUCOS DE SPEEDRUNNER</h3>
+                <div class="video-responsive"><iframe src="https://www.youtube.com/embed/9XRbWkdrcZI" allowfullscreen></iframe></div>
+            </div>
+            <div class="video-card">
+                <h3>TODOS LOS JEFES RANGO S</h3>
+                <div class="video-responsive"><iframe src="https://www.youtube.com/embed/gd5k6kZi_vw" allowfullscreen></iframe></div>
+            </div>
+            <div class="video-card">
+                <h3>SECRETOS OCULTOS Y DLC</h3>
+                <div class="video-responsive"><iframe src="https://www.youtube.com/embed/k5N98gTlWgo" allowfullscreen></iframe></div>
+            </div>
+            <div class="video-card">
+                <h3>MODO EXPERTO SIN DAÑO</h3>
+                <div class="video-responsive"><iframe src="https://www.youtube.com/embed/E369f_bWvYg" allowfullscreen></iframe></div>
+            </div>
+        </div>
+        <img src="jefes.png" class="img-pro" alt="Repetición Jefes">
+        <a href="#top" class="btn-up">SUBIR AL MENÚ</a>
+    </div>
+</section>
+
+<section id="jefes" class="full-width-section bg-papel">
+    <div class="container">
+        <h2>EL ENFRENTAMIENTO FINAL</h2>
+        <img src="secretos.png" class="img-pro" alt="Secretos Repetidos">
+        <h3>KING DICE: EL PORTERO DEL INFIERNO</h3>
+        <p>No es una pelea, es un maratón. Debes aprender a golpear el dado para que siempre caiga en el número que deseas. Evita a los jefes 6 y 9 si no tienes buena coordinación. El truco secreto: quédate detrás de la mano de King Dice cuando lanza las cartas para evitar daño.</p>
+        
+        <h3>EL DIABLO: LA BATALLA DEFINITIVA</h3>
+        <p>Tiene 4 fases. En la fase final, cuando solo quedan las plataformas y sus lágrimas, el secreto es usar el Super II de Chalice (el escudo) o el Super I de Cuphead justo cuando las plataformas empiecen a desaparecer. ¡El Rango S está a un paso!</p>
+        <img src="final.png" class="img-pro" alt="Cierre Final">
+        <a href="#top" class="btn-up">SUBIR AL MENÚ</a>
+    </div>
+</section>
+
+<section id="secretos" class="full-width-section bg-dark">
+    <div class="container">
+        <h2>CURIOSIDADES DE NIVEL EXPERTO</h2>
+        <img src="mapa.png" class="img-pro" alt="Mapa Repetido">
+        <p>¿Sabías que hay un modo visual en Blanco y Negro? Se desbloquea hablando con la tortuga en el Mundo 3 después de completar todos los niveles de "Run 'n Gun" sin matar a un solo enemigo (P-Rank). Es el reto más difícil de todo el juego.</p>
+        <p>Además, existe un jefe secreto en el nivel del teatro (Sally Stageplay) que se activa rompiendo los ángeles del decorado en la primera fase. ¡Esta guía cubre cada rincón!</p>
+        <img src="encabezado.png" class="img-pro" alt="Cierre de Guía">
+    </div>
+</section>
 
 <footer>
-    ISMAEL JOSUE RODRIGUEZ VILLALOBOS
+    <h1 style="font-size: 3rem; color: var(--dorado);">ISMAEL JOSUE RODRIGUEZ VILLALOBOS</h1>
+    <p>INGENIERÍA ESTRATÉGICA DE VIDEOJUEGOS &copy; 2026</p>
+    <p>Todos los derechos reservados. Diseñado para la gloria del Rango S.</p>
 </footer>
+
+<img src="final.png" class="floating-img" alt="Icono flotante">
 
 </body>
 </html>
